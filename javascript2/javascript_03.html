@@ -2,6 +2,18 @@
 <html>
 <head>
     <script type="text/javascript">
+    console.log = function(msg) {
+        var ul = document.getElementById("log");
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode(msg));
+        ul.appendChild(li);
+    }
+
+    window.onload = function() {
+        document.getElementById("run").onclick = function() {
+            //
+            // 기존 자바스크립트 코드를 이쪽으로 옮김.
+            //
     var language = "javascript";
     console.log(language[0]);
     console.log(language[1]);
@@ -13,8 +25,32 @@
     language[2] = 'C';
     language[3] = 'D';
     console.log(language); // javascript
+        }
+    }
     </script>
 </head>
 <body>
+    <div>
+        <textarea cols = "100" rows="40">
+    var language = "javascript";
+    document.write(language[0]);
+    document.writeg(language[1]);
+    document.write(language[2]);
+    document.write(language[3]);
+
+    language[0] = 'A';
+    language[1] = 'B';
+    language[2] = 'C';
+    language[3] = 'D';
+    document.write(language); // javascript
+        </textarea>
+    </div>
+    <div>
+        <input type="button" id="run" value="실행"/>
+    </div>
+    <div>
+        <ul id="log" style="list-style-type:circle"></ul>
+    </div>    
 </body>
 </html>
+
